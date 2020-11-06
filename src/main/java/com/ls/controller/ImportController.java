@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -19,7 +18,7 @@ public class ImportController {
 
     @GetMapping("/import")
     public void toExcel(HttpServletResponse response){
-        List<Employee> employees = new ArrayList<Employee>();
+        List<Employee> employees;
         employees = employeeSv.query();
         ImportToExcel importToExcel = new ImportToExcel();
         importToExcel.importToExcel(employees,response);
