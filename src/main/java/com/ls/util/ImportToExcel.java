@@ -18,7 +18,7 @@ import java.util.List;
 
 public class ImportToExcel {
     public void importToExcel(List<Employee> list, HttpServletResponse response){
-        String fileName = DateFormatUtils.format(new Date(), "yyyyMMddhhmmss");
+        String fileName = DateFormatUtils.format(new Date(), "yyyyMMddhhmm");
         response.reset();
         response.setContentType("application/vnd.ms-excel");
         response.setHeader("Content-disposition", "attachment;filename=" + fileName + ".xls");
