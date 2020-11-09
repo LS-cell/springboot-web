@@ -10,8 +10,11 @@ import java.util.Map;
 @Controller
 public class LoginController {
 
+    @RequestMapping("/i18n")
+    public String i18n(){
+        return "login";
+    }
 
-    //@RequestMapping(value = "/user/login",method = RequestMethod.POST)
     @PostMapping(value = "/user/login")
     public String login(@RequestParam("username") String username,
                         @RequestParam("password") String password,
@@ -25,6 +28,6 @@ public class LoginController {
             map.put("msg","用户名密码错误");
             return  "login";
         }
-
     }
+
 }
