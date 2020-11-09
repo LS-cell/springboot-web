@@ -1,12 +1,10 @@
 package com.ls.dao.interfaces;
 
 import com.ls.pojo.Employee;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-@Mapper
 public interface EmployeeDao {
     public Employee getEmpByID(Integer id);
     List<Employee> getEmp();
