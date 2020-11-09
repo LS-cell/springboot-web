@@ -3,23 +3,20 @@ package com.ls.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-//使用WebMvcConfigurerAdapter可以来扩展SpringMVC的功能
-//@EnableWebMvc   不要接管SpringMVC
 @Configuration
-public class MyMvcConfig extends WebMvcConfigurerAdapter {
+public class MyMvcConfig implements WebMvcConfigurer {
 
-    @Bean //将组件注册在容器
-    public WebMvcConfigurerAdapter webMvcConfigurerAdapter(){
-        WebMvcConfigurerAdapter adapter = new WebMvcConfigurerAdapter() {
-            @Override
-            public void addViewControllers(ViewControllerRegistry registry) {
-                registry.addViewController("/").setViewName("login");
-            }
-        };
-        return adapter;
+    /**配置视图解析器*/
+    public void addViewControllers(ViewControllerRegistry registry){
+        registry.addViewController("/").setViewName("login");
+    }
+    /**配置映射静态资源*/
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/img/**").addResourceLocations("file:D:/Date/img/");
     }
 
     @Bean
