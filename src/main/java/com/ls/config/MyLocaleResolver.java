@@ -19,7 +19,6 @@ public class MyLocaleResolver implements LocaleResolver {
             String[] s = l.split("_");
             locale = new Locale(s[0], s[1]);
         }
-
         return locale;
     }
 
