@@ -3,6 +3,7 @@ package com.ls.controller;
 import com.ls.service.impl.EmployeeSvImpl;
 import com.ls.pojo.Employee;
 import com.sun.deploy.nativesandbox.comm.Response;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@Api(tags = "员工服务")
 public class EmployeeController {
     @Autowired
     EmployeeSvImpl employeeSv;

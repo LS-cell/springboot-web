@@ -1,5 +1,6 @@
 package com.ls.controller;
 
+import io.swagger.annotations.Api;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 @Controller
+@Api(tags = "登陆服务")
 public class LoginController {
 
     @RequestMapping("/i18n")
